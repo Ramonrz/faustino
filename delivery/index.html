@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- HTML Meta Tags -->
+    <title>App Delivery | Espetinhos, Porções, Caldos e Bebidas</title>
+    <meta name="description" content="Espetinhos, Porções, Caldos e Bebidas">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="App Delivery">
+    <meta itemprop="description" content="Espetinhos, Porções, Caldos e Bebidas">
+    <meta itemprop="image" content="assets/img/logo.jpg">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://faustinobar.com.br">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="App Delivery">
+    <meta property="og:description" content="Espetinhos, Porções, Caldos e Bebidas">
+    <meta property="og:image" content="assets/img/logo.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="App Delivery">
+    <meta name="twitter:description" content="Espetinhos, Porções, Caldos e Bebidas">
+    <meta name="twitter:image" content="assets/img/logo.jpg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/modalAdress.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+</head>
+
+<body>
+
+    <aside>
+        <div class="cart--area">
+            <div class="menu-closer" id="m-closer">❌</div>
+            <div>
+                <h1>Seu Pedido</h1>
+            </div>
+            <div class="cart" id="cart-id"></div>
+            <div class="cart--details">
+                <div class="cart-value subtotal">
+                    <span>Subtotal (Mínimo R$20)</span>
+                    <span class="cart-value-subtotal" id="cart-subtotal">R$ --</span>
+                </div>
+                <div class="cart-value desconto">
+                    <span>Embalagem</span>
+                    <span class="cart-value-desconto">R$ 2,00</span>
+                </div>
+                <div class="cart-value total big">
+                    <span>Total</span>
+                    <span class="cart-value-total" id="cart-total">R$ --</span>
+                </div>
+                <p>*Aceitamos somente PIX</p>
+                <p>*O frete será calculado pelo atendente</p>
+                <div class="cart--finalizar" id="cart-finalizar">Enviar pedido</div>
+            </div>
+            <!--cart--details-->
+        </div>
+        <!--cart--area-->
+    </aside>
+
+    <!--========== MODAL ADRESS ==========-->
+    <div id="demo-modal" class="modal" role="dialog" tabindex="-1">
+        <div id="form-endereco">
+            <h3>Onde você quer pedir?</h3>
+            <form action="javascript:closeModal()">
+
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" required>
+
+                <label for="numero">Número</label>
+                <input maxlength="10"  pattern="[0-9]*" id="numero" name="numero" required>
+
+                <label for="ref">Ponto de Referência</label>
+                <input type="text" id="ref" name="ref" required>
+
+                <input type="submit" value="Ok" id="btn-endereco">
+            </form>
+        </div>
+    </div>
+
+    <!--========== SCROLL TOP ==========-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    </a>
+
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="#" class="nav__logo">App Delivery</a>
+            <div class="nav__toggle button" id="nav-toggle">
+                <span id="itens-cart">0</span> 🛒
+            </div>
+        </nav>
+    </header>
+
+    <footer class="footer section bd-container">
+        <div class="footer__container bd-grid">
+            <div class="footer__content">
+                <div>
+                    <a href="https://www.instagram.com/brasaoespetinho/?igshid=YmMyMTA2M2Y=" target="_blank"
+                        class="footer__social"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+    </footer>
+
+    <main class="l-main">
+
+        <!--========== MENU ==========-->
+
+        <section class="menu section bd-container" id="almoco" style="display: none">
+            <h2 class="section-title">Almoço</h2>
+
+            <div class="menu__container bd-grid">
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Feijoada</h3>
+                    <span class="menu__detail">Arroz branco, couve, farofa de cebola, torresmo frito e laranja</span>
+                    <span class="menu__preci">R$ 24,90</span>
+                    <a href="javascript:addCart(26)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu section bd-container" id="espetinhos">
+            <h2 class="section-title">Espetinhos</h2>
+
+            <div class="menu__container bd-grid">
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Picanha Suína</h3>
+                    <span class="menu__preci">R$ 12,00</span>
+                    <a href="javascript:addCart(27)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Picanha Montada</h3>
+                    <span class="menu__detail">Alcatra</span>
+                    <span class="menu__preci">R$ 12,00</span>
+                    <a href="javascript:addCart(1)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Contra Filé</h3>
+                    <span class="menu__detail">Black Angus</span>
+                    <span class="menu__preci">R$ 10,00</span>
+                    <a href="javascript:addCart(2)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Carne de Sol</h3>
+                    <span class="menu__detail">Serenada</span>
+                    <span class="menu__preci">R$ 10,00</span>
+                    <a href="javascript:addCart(3)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Kafta Libanesa</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 9,00</span>
+                    <a href="javascript:addCart(4)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Frango C/ Bacon</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 10,00</span>
+                    <a href="javascript:addCart(5)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Coração de Frango</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 10,00</span>
+                    <a href="javascript:addCart(7)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Frango Filé de Peito</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 9,00</span>
+                    <a href="javascript:addCart(6)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Linguiça Suína Fina</h3>
+                    <span class="menu__detail">Apimentada</span>
+                    <span class="menu__preci">R$ 8,00</span>
+                    <a href="javascript:addCart(8)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Pão C/ Alho</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 8,00</span>
+                    <a href="javascript:addCart(9)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Queijo Coalho</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 8,00</span>
+                    <a href="javascript:addCart(29)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu section bd-container" id="acompanhamentos">
+            <h2 class="section-title">Guarnições</h2>
+            <div class="menu__container bd-grid">
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Jantinha</h3>
+                    <span class="menu__detail">Arroz, Feijão Tropeiro, Vinagrete e Mandioca</span>
+                    <span class="menu__preci">R$ 13,00</span>
+                    <a href="javascript:addCart(10)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Feijão Tropeiro</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 9,00</span>
+                    <a href="javascript:addCart(11)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Vinagrete</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 9,00</span>
+                    <a href="javascript:addCart(30)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Mandioca</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 9,00</span>
+                    <a href="javascript:addCart(12)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu section bd-container" id="caldos">
+            <h2 class="section-title">Caldos (500ml)</h2>
+            <div class="menu__container bd-grid">
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Caldo Ervilha C/ Frango</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 16,00</span>
+                    <a href="javascript:addCart(13)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Caldo Verde</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 16,00</span>
+                    <a href="javascript:addCart(14)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Caldo Vaca Atolada</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 16,00</span>
+                    <a href="javascript:addCart(15)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu section bd-container" id="porcoes">
+            <h2 class="section-title">Porções</h2>
+            <div class="menu__container bd-grid">
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Mini Pastéis (20 UN)</h3>
+                    <span class="menu__detail">Carne</span>
+                    <span class="menu__preci">R$ 29,90</span>
+                    <a href="javascript:addCart(16)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Mix Mini Pastéis (20 UN)</h3>
+                    <span class="menu__detail">Carne/Queijo</span>
+                    <span class="menu__preci">R$ 29,90</span>
+                    <a href="javascript:addCart(17)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Discos (7 UN)</h3>
+                    <span class="menu__detail">Carne C/ Queijo</span>
+                    <span class="menu__preci">R$ 29,90</span>
+                    <a href="javascript:addCart(28)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Mini Quibe (20 UN)</h3>
+                    <span class="menu__detail">C/ Catupiry</span>
+                    <span class="menu__preci">R$ 28,99</span>
+                    <a href="javascript:addCart(18)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Mini Coxinha (20 UN)</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 28,90</span>
+                    <a href="javascript:addCart(19)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Mini Churros (20 UN)</h3>
+                    <span class="menu__detail">Doce de Leite</span>
+                    <span class="menu__preci">R$ 28,99</span>
+                    <a href="javascript:addCart(20)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu section bd-container" id="bebidas">
+            <h2 class="section-title">Bebidas</h2>
+            <div class="menu__container bd-grid">
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Suco Laranja (500ml)</h3>
+                    <span class="menu__detail">Natural da Fruta</span>
+                    <span class="menu__preci">R$ 13,00</span>
+                    <a href="javascript:addCart(21)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Coca-Cola (600ml)</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 8,50</span>
+                    <a href="javascript:addCart(22)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Coca-Cola (310ml)</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 6,00</span>
+                    <a href="javascript:addCart(23)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Coca Cola (310ml)</h3>
+                    <span class="menu__detail">S/ Açúcar</span>
+                    <span class="menu__preci">R$ 6,00</span>
+                    <a href="javascript:addCart(24)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+                <div class="menu__content">
+                    <h3 class="menu__name">Guaraná Antarctica (269ml)</h3>
+                    <span class="menu__detail"></span>
+                    <span class="menu__preci">R$ 6,00</span>
+                    <a href="javascript:addCart(25)" class="button menu__button"><i class='bx bx-plus'></i></a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <!--========== FOOTER ==========-->
+    <footer class="footer section bd-container">
+        <div class="footer__container bd-grid">
+            <div class="footer__content">
+                <a href="#" class="footer__logo">Faustino</a>
+                <span class="footer__description">Cozinha e Bar</span>
+                <div>
+                    <a href="https://www.instagram.com/barfaustino" target="_blank"
+                        class="footer__social"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Sobradinho/DF</h3>
+                <ul>
+                    <li>Grande Colorado, ED Hyara Center LJ 01</li>
+                    <li>(61) 99977-8907</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="footer__copy">Faustino Bar. All Right Reserved</p>
+    </footer>
+
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="assets/js/scrollreveal.js"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/listMenu.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/modalAdress.js"></script>
+
+</body>
+
+</html>
