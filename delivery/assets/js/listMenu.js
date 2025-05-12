@@ -8,31 +8,31 @@ let listMenu = [
     {
         id: 2,
         name: "Contra Filé",
-        price: 10.0,
+        price: 11.0,
         qtd: 0
     },
     {
         id: 3,
         name: "Carne de Sol",
-        price: 10.0,
+        price: 11.0,
         qtd: 0
     },
     {
         id: 4,
-        name: "Kafta Libanesa",
-        price: 9.0,
+        name: "Kafta C/ Queijo",
+        price: 10.0,
         qtd: 0
     },
     {
         id: 5,
         name: "Frango C/ Bacon",
-        price: 10.0,
+        price: 11.0,
         qtd: 0
     },
     {
         id: 6,
         name: "Frango Filé de Peito",
-        price: 9.0,
+        price: 10.0,
         qtd: 0
     },
     {
@@ -92,37 +92,37 @@ let listMenu = [
     {
         id: 16,
         name: "Mini Pastéis Carne",
-        price: 29.90,
+        price: 30.90,
         qtd: 0
     },
     {
         id: 17,
         name: "Mini Pastéis Carne/Queijo",
-        price: 29.90,
+        price: 30.90,
         qtd: 0
     },
     {
         id: 18,
         name: "Mini Quibe",
-        price: 28.90,
+        price: 29.90,
         qtd: 0
     },
     {
         id: 19,
         name: "Mini Coxinha",
-        price: 28.90,
+        price: 29.90,
         qtd: 0
     },
     {
         id: 20,
         name: "Mini Churros",
-        price: 28.90,
+        price: 29.90,
         qtd: 0
     },
     {
         id: 28,
         name: "Discos Carne C/ Quejo",
-        price: 29.90,
+        price: 30.90,
         qtd: 0
     },
     {
@@ -176,7 +176,7 @@ let listMenu = [
     {
         id: 27,
         name: "Picanha Suína",
-        price: 12.00,
+        price: 13.00,
         qtd: 0
     }
 ];
